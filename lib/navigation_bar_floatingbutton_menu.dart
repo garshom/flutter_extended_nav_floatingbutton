@@ -178,56 +178,31 @@ class CustomBottomNavigationButton extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 10,
-      left: 10,
-      right: 10,
-      height: MediaQuery.of(context).size.height/1.8,
-      // alignment: Alignment.bottomCenter,
-      child: Card(
-        color: Colors.transparent,
-        elevation: elevation ?? 10,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(20),
-            bottomRight: Radius.circular(20),
-          ),
-        ),
-        child: SizedBox(
-          height: bottomBarOriginalHeight +
-              //* Increase height when parallex card is expanded *//
-              (bottomBarExpandedHeight - bottomBarOriginalHeight)  +
-              //* Increase height when More Button is expanded *//
-              (bottomBarExpandedHeight) * currentBottomBarMorePercentage +
-              //* Increase Height For Search Bar */
-              (bottomBarExpandedHeight),
-          child: Stack(
+    return Stack(
             children: <Widget>[
-              _buildOtherButtons(context),
-              _buildMoreExpandedCard(context),
+             _buildOtherButtons(context),
+             _buildMoreExpandedCard(context),
             ],
-          ),
-        ),
-      ),
-    );
+      );
   }
-
-  
 
   Widget _buildOtherButtons(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
         width: 80.0,
-        padding: EdgeInsets.only(left: 0, right: 0),
-        margin: EdgeInsets.only(bottom: 30.0),
+        padding: EdgeInsets.only(left: 0, right: 0,),
+        margin: EdgeInsets.only(bottom: 30.0,),
         height: bottomBarVisibleHeight +
             (bottomBarExpandedHeight - 0) * currentBottomBarMorePercentage,
         decoration: BoxDecoration(
-          color: Colors.transparent,
+          //color: Colors.transparent,
+          color: Theme.of(context).canvasColor,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
             bottomRight: Radius.circular(20),
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
           ),
         ),
         child:Row(
@@ -282,7 +257,16 @@ class CustomBottomNavigationButton extends StatelessWidget {
       bottom: 60,
       child: Opacity(
         opacity: currentBottomBarMorePercentage,
-        child: Container(
+        child: Card(
+          color: Colors.green,
+          elevation: elevation ?? 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+          ),
+          child: Container(
           height: (bottomBarExpandedHeight - bottomBarVisibleHeight - 10) *
               currentBottomBarMorePercentage,
           child: Stack(
@@ -362,7 +346,8 @@ class CustomBottomNavigationButton extends StatelessWidget {
               ),
             ],
           ),
-        ),
+         ),
+        )
       ),
     );
   }
