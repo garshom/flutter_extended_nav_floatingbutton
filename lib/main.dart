@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      
       /*
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green[400],
@@ -109,9 +109,52 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.menu,color: Colors.white,),
       ), 
       */
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.orange[400],
+        backgroundColor: Colors.white,
+        onTap: (index){
+          setState((){
+            
+          });
+        },
+        items: [
+          new BottomNavigationBarItem(
+              icon: Icon(Icons.home, size:24,),
+              title: Text(
+                'Home',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              )),
+
+          new BottomNavigationBarItem(
+              icon: Icon(Icons.supervised_user_circle, size:24,),
+              title: Text(
+                'Wallets',
+                style: TextStyle(fontWeight: FontWeight.w500),
+
+              )),
+          
+          new BottomNavigationBarItem(
+              icon: Icon(Icons.school, size:24),
+              title: Text(
+                'Payments',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              )),
+              
+          new BottomNavigationBarItem(
+              icon: Icon(Icons.payment, size:24),
+              title: Text(
+                'Transactions',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              )),
+
+        ]),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ExtendedNavigationButton(
         elevation: 0,
-        navButtonColor: Colors.green[400],
+        navButtonColor: Colors.blue[400],
         navButtonIconColor: Colors.white,
         menuButtons: [
           MenuButtonModel(

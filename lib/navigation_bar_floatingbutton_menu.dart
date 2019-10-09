@@ -220,18 +220,20 @@ class CustomBottomNavigationButton extends StatelessWidget {
       child: Container(
         width: 80.0,
         padding: EdgeInsets.only(left: 0, right: 0),
+        margin: EdgeInsets.only(bottom: 30.0),
         height: bottomBarVisibleHeight +
             (bottomBarExpandedHeight - 0) * currentBottomBarMorePercentage,
         decoration: BoxDecoration(
-          color: Theme.of(context).canvasColor,
+          color: Colors.transparent,
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
             bottomRight: Radius.circular(20),
           ),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[_buildMoreButton()],
+        child:Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[_buildMoreButton(),],
+
         ),
       ),
     );
